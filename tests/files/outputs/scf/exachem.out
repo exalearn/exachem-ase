@@ -1,0 +1,136 @@
+
+date: Tue Dec  5 13:24:30 2023
+program: "/home/lward/Software/exachem/bin/bin/ExaChem"
+input: /tmp/pytest-of-lward/pytest-9/test_tamm_scf_0/exachem.json
+nnodes: 1, nproc: 2
+prefix: exachem
+
+Memory information
+{
+ CPU memory per node (GiB): 15
+ Total CPU memory (GiB): 15
+}
+
+
+Input file provided
+--------------------
+{
+  "common": {
+    "maxiter": 100
+  },
+  "SCF": {
+    "tol_int": 1e-16,
+    "tol_lindep": 1e-06,
+    "conve": 1e-09,
+    "convd": 1e-08,
+    "diis_hist": 10,
+    "charge": 0,
+    "multiplicity": 1,
+    "scf_type": "restricted",
+    "writem": 10,
+    "force_tilesize": false,
+    "tilesize": 30
+  },
+  "CD": {
+    "diagtol": 1e-12,
+    "max_cvecs": 40
+  },
+  "CC": {
+    "threshold": 1e-06,
+    "ndiis": 5,
+    "writet": false,
+    "ccsd_maxiter": 100,
+    "CCSD(T)": {
+      "ccsdt_tilesize": 28
+    },
+    "debug": false
+  },
+  "geometry": {
+    "coordinates": [
+      "O\t0.00000000\t0.00000000\t0.11926200",
+      "H\t0.00000000\t0.76323900\t-0.47704700",
+      "H\t0.00000000\t-0.76323900\t-0.47704700"
+    ],
+    "units": "angstrom"
+  },
+  "basis": {
+    "basisset": "cc-pvdz",
+    "atom_basis": null
+  },
+  "TASK": {
+    "scf": true
+  }
+}
+
+Number of nodes, processes per node used for SCF calculation: 1, 2
+
+SCF Options
+{
+ charge       = 0
+ multiplicity = 1
+ level shift  = 0
+ tol_int      = 1e-16
+ tol_sch      = 1e-10
+ tol_lindep   = 1e-06
+ conve        = 1e-09
+ convd        = 1e-08
+ diis_hist    = 10
+ AO_tilesize  = 30
+ writem       = 10
+ damp         = 100
+ scf_type     = restricted
+ restart_size = 2000
+ restart      = false
+ debug        = false
+}
+**** Resetting tol_sch to 1e-11
+
+Number of basis functions = 24
+
+Total number of shells = 12
+
+Total number of electrons = 10
+  # of alpha electrons    = 5
+  # of beta electons      = 5
+
+Nuclear repulsion energy  = 9.08829442647336
+
+# of {all,non-negligible} shell-pairs = {78,78}
+Number of AO tiles = 12
+
+Time for initial setup: 0.01 secs
+
+Time for computing 1-e integrals T, V, S: 0.00 secs
+Time for computing orthogonalizer: 0.00 secs
+
+Superposition of Atomic Density Guess ...
+Time taken for SAD: 0.03 secs
+Total Time to compute initial guess: 0.04 secs
+
+
+ SCF iterations
+-----------------------------------------------------------------
+ Iter     Energy            E-Diff       RMSD          Time(s)
+-----------------------------------------------------------------
+   1  -75.9673233517    -7.60e+01     1.97e-02         0.0 
+   2  -76.0095737841    -4.23e-02     7.15e-03         0.0 
+   3  -76.0257395167    -1.62e-02     1.06e-03         0.0 
+   4  -76.0260117339    -2.72e-04     2.94e-04         0.0 
+   5  -76.0260271551    -1.54e-05     6.41e-05         0.0 
+   6  -76.0260277093    -5.54e-07     1.24e-05         0.0 
+   7  -76.0260277254    -1.62e-08     1.43e-06         0.0 
+   8  -76.0260277257    -2.34e-10     4.89e-07         0.0 
+   9  -76.0260277257    -2.01e-11     5.41e-08         0.0 
+  10  -76.0260277257    -2.56e-13     3.79e-09         0.0 
+
+** Total SCF energy = -76.0260277256862
+
+Nuclear repulsion energy = 9.088294426473363
+#electrons        = 9.999999999999993
+1e energy kinetic = 75.9466568775523569
+1e energy N-e     = -198.9062733793318500
+1e energy         = -122.9596165017794789
+2e energy         = 37.8452943136911912
+writing orbitals and density to disk ... done.
+
+Total Time taken for Hartree-Fock: 0.15 secs

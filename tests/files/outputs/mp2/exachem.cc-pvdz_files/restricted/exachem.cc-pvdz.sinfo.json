@@ -1,0 +1,13 @@
+{
+  "molecule": {
+    "name": "exachem",
+    "basis": {
+      "all": "cc-pvdz"
+    },
+    "nbf": 24,
+    "nshells": 12,
+    "nelectrons": 10,
+    "nelectrons_alpha": 5,
+    "nelectrons_beta": 5
+  }
+}

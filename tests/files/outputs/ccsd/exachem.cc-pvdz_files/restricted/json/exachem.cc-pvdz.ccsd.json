@@ -1,0 +1,233 @@
+{
+  "output": {
+    "SCF": {
+      "nucl_rep_energy": 9.088294426473363,
+      "iter": {
+        "1": {
+          "energy": -75.96732335168548,
+          "e_diff": -75.96732335168548,
+          "rmsd": 0.01973190260771962,
+          "performance": {
+            "total_time": 0.006366473
+          }
+        },
+        "2": {
+          "energy": -76.00957378410146,
+          "e_diff": -0.04225043241598314,
+          "rmsd": 0.007148510828654361,
+          "performance": {
+            "total_time": 0.006074487
+          }
+        },
+        "3": {
+          "energy": -76.02573951665794,
+          "e_diff": -0.016165732556473245,
+          "rmsd": 0.0010647186204074542,
+          "performance": {
+            "total_time": 0.006019664
+          }
+        },
+        "4": {
+          "energy": -76.02601173385499,
+          "e_diff": -0.00027221719705039504,
+          "rmsd": 0.00029395534712322316,
+          "performance": {
+            "total_time": 0.006980586
+          }
+        },
+        "5": {
+          "energy": -76.0260271551045,
+          "e_diff": -1.542124951470214e-05,
+          "rmsd": 6.412840063387569e-05,
+          "performance": {
+            "total_time": 0.007034488
+          }
+        },
+        "6": {
+          "energy": -76.02602770926931,
+          "e_diff": -5.541648135931609e-07,
+          "rmsd": 1.2370547649291142e-05,
+          "performance": {
+            "total_time": 0.007734621
+          }
+        },
+        "7": {
+          "energy": -76.02602772543166,
+          "e_diff": -1.6162346128112404e-08,
+          "rmsd": 1.4293563111638889e-06,
+          "performance": {
+            "total_time": 0.00854464
+          }
+        },
+        "8": {
+          "energy": -76.02602772566586,
+          "e_diff": -2.34194885706529e-10,
+          "rmsd": 4.891277229750766e-07,
+          "performance": {
+            "total_time": 0.009593949
+          }
+        },
+        "9": {
+          "energy": -76.02602772568598,
+          "e_diff": -2.0122570276726037e-11,
+          "rmsd": 5.411944451876922e-08,
+          "performance": {
+            "total_time": 0.010509829
+          }
+        },
+        "10": {
+          "energy": -76.02602772568625,
+          "e_diff": -2.7000623958883807e-13,
+          "rmsd": 3.794851640984579e-09,
+          "performance": {
+            "total_time": 0.012342455
+          }
+        }
+      },
+      "final_energy": -76.02602772568625,
+      "n_iterations": 10
+    },
+    "CD": {
+      "n_cholesky_vectors": 279
+    },
+    "CCSD": {
+      "iter": {
+        "1": {
+          "residual": 0.4311880389062467,
+          "correlation": 0.0,
+          "performance": {
+            "total_time": 0.011496659
+          }
+        },
+        "2": {
+          "residual": 0.05037660233854323,
+          "correlation": -0.20479871707158517,
+          "performance": {
+            "total_time": 0.009170123
+          }
+        },
+        "3": {
+          "residual": 0.015346371173312594,
+          "correlation": -0.2096258042582559,
+          "performance": {
+            "total_time": 0.009044499
+          }
+        },
+        "4": {
+          "residual": 0.005398953127183185,
+          "correlation": -0.21291718611968297,
+          "performance": {
+            "total_time": 0.008919644
+          }
+        },
+        "5": {
+          "residual": 0.002209754260764686,
+          "correlation": -0.21364756894917314,
+          "performance": {
+            "total_time": 0.009443807
+          }
+        },
+        "6": {
+          "residual": 0.0005717058312947561,
+          "correlation": -0.2141232887909988,
+          "performance": {
+            "total_time": 0.008570951
+          }
+        },
+        "7": {
+          "residual": 0.00019201454740822973,
+          "correlation": -0.2141112535928441,
+          "performance": {
+            "total_time": 0.008905246
+          }
+        },
+        "8": {
+          "residual": 9.698382248937609e-05,
+          "correlation": -0.2141187250096417,
+          "performance": {
+            "total_time": 0.009158432
+          }
+        },
+        "9": {
+          "residual": 4.79266635258066e-05,
+          "correlation": -0.2141215891667169,
+          "performance": {
+            "total_time": 0.008957195
+          }
+        },
+        "10": {
+          "residual": 2.6060604393653402e-05,
+          "correlation": -0.21412312315546428,
+          "performance": {
+            "total_time": 0.008728445
+          }
+        },
+        "11": {
+          "residual": 3.842952137122502e-06,
+          "correlation": -0.21412465951722112,
+          "performance": {
+            "total_time": 0.008762319
+          }
+        },
+        "12": {
+          "residual": 1.6685873198116044e-06,
+          "correlation": -0.21412520484754904,
+          "performance": {
+            "total_time": 0.009078712
+          }
+        },
+        "13": {
+          "residual": 8.077458271255907e-07,
+          "correlation": -0.2141250275315458,
+          "performance": {
+            "total_time": 0.008805921
+          }
+        }
+      },
+      "n_iterations": 13,
+      "final_energy": {
+        "correlation": -0.2141250275315458,
+        "total": -76.2401527532178
+      }
+    }
+  },
+  "input": {
+    "molecule": {
+      "name": "exachem",
+      "basisset": "cc-pvdz",
+      "geometry_units": "angstrom"
+    },
+    "SCF": {
+      "tol_int": 1e-16,
+      "tol_sch": 1e-10,
+      "tol_lindep": 1e-06,
+      "conve": 1e-09,
+      "convd": 1e-08,
+      "diis_hist": 10,
+      "AO_tilesize": 30,
+      "force_tilesize": "false",
+      "scf_type": "restricted",
+      "multiplicity": 1,
+      "lambdas": [],
+      "polvecs": [],
+      "omegas": [],
+      "volumes": []
+    },
+    "CD": {
+      "diagtol": 1e-12,
+      "itilesize": 1000,
+      "write_cv": false,
+      "write_vcount": 5000,
+      "max_cvecs_factor": 40
+    },
+    "CCSD": {
+      "threshold": 1e-06,
+      "tilesize": 40,
+      "ndiis": 5,
+      "readt": "false",
+      "writet": "false",
+      "ccsd_maxiter": 100,
+      "balance_tiles": "true"
+    }
+  }
+}

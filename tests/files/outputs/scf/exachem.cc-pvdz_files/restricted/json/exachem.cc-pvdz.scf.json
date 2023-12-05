@@ -1,0 +1,117 @@
+{
+  "output": {
+    "SCF": {
+      "nucl_rep_energy": 9.088294426473363,
+      "iter": {
+        "1": {
+          "energy": -75.96732335168544,
+          "e_diff": -75.96732335168544,
+          "rmsd": 0.019731902607719856,
+          "performance": {
+            "total_time": 0.005971492
+          }
+        },
+        "2": {
+          "energy": -76.00957378410146,
+          "e_diff": -0.042250432416025774,
+          "rmsd": 0.007148510828654305,
+          "performance": {
+            "total_time": 0.006114061
+          }
+        },
+        "3": {
+          "energy": -76.02573951665795,
+          "e_diff": -0.016165732556487455,
+          "rmsd": 0.001064718620407499,
+          "performance": {
+            "total_time": 0.006568794
+          }
+        },
+        "4": {
+          "energy": -76.02601173385494,
+          "e_diff": -0.0002722171969935516,
+          "rmsd": 0.00029395534712294485,
+          "performance": {
+            "total_time": 0.006760424
+          }
+        },
+        "5": {
+          "energy": -76.02602715510452,
+          "e_diff": -1.542124957154556e-05,
+          "rmsd": 6.412840063545505e-05,
+          "performance": {
+            "total_time": 0.007057821
+          }
+        },
+        "6": {
+          "energy": -76.02602770926936,
+          "e_diff": -5.541648420148704e-07,
+          "rmsd": 1.2370547650265528e-05,
+          "performance": {
+            "total_time": 0.007848004
+          }
+        },
+        "7": {
+          "energy": -76.02602772543167,
+          "e_diff": -1.6162317706402973e-08,
+          "rmsd": 1.429356312899526e-06,
+          "performance": {
+            "total_time": 0.009046452
+          }
+        },
+        "8": {
+          "energy": -76.02602772566586,
+          "e_diff": -2.341806748518138e-10,
+          "rmsd": 4.891277171588487e-07,
+          "performance": {
+            "total_time": 0.009879695
+          }
+        },
+        "9": {
+          "energy": -76.02602772568598,
+          "e_diff": -2.0122570276726037e-11,
+          "rmsd": 5.411944586258565e-08,
+          "performance": {
+            "total_time": 0.010668747
+          }
+        },
+        "10": {
+          "energy": -76.02602772568623,
+          "e_diff": -2.5579538487363607e-13,
+          "rmsd": 3.794853974670539e-09,
+          "performance": {
+            "total_time": 0.011863176
+          }
+        }
+      },
+      "final_energy": -76.02602772568623,
+      "n_iterations": 10
+    }
+  },
+  "input": {
+    "molecule": {
+      "name": "exachem",
+      "basisset": "cc-pvdz",
+      "geometry_units": "angstrom"
+    },
+    "SCF": {
+      "tol_int": 1e-16,
+      "tol_sch": 1e-10,
+      "tol_lindep": 1e-06,
+      "conve": 1e-09,
+      "convd": 1e-08,
+      "diis_hist": 10,
+      "AO_tilesize": 30,
+      "force_tilesize": "false",
+      "scf_type": "restricted",
+      "multiplicity": 1,
+      "lambdas": [],
+      "polvecs": [],
+      "omegas": [],
+      "volumes": []
+    },
+    "CCSD": {
+      "threshold": 1e-06
+    }
+  }
+}
