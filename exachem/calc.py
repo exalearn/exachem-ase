@@ -2,6 +2,7 @@
 import re
 import json
 import logging
+from collections import defaultdict
 from pathlib import Path
 
 from ase.calculators.calculator import FileIOCalculator
@@ -11,7 +12,11 @@ logger = logging.getLogger(__name__)
 
 
 class ExaChem(FileIOCalculator):
-    """ExaChem implements many quantum chemistry methods as scalable algorithms on GPU"""
+    """ExaChem implements many quantum chemistry methods as scalable algorithms on GPU
+
+    Set the initial charges and magnetic moments to control the charge and multiplicity of a
+    calculation, respectively.
+    """
 
     default_parameters = {
         'basisset': 'cc-pvdz',
@@ -33,25 +38,38 @@ class ExaChem(FileIOCalculator):
             )
 
         # Join geometry and basis with the rest of the settings
-        output = self.parameters['template'].copy()
+        output = defaultdict(dict)
+        output.update(self.parameters['template'])
         output['geometry'] = geometry
         output['basis'] = {'basisset': self.parameters['basisset']}
         output['TASK'] = {self.parameters['method']: True}
+
+        # Determine the charge and multiplicity of the system
+        charge = atoms.get_initial_charges().sum()
+        if charge != 0:
+            output['SCF']['charge'] = charge
+
+        magmom = int(round(abs(atoms.get_initial_magnetic_moments().sum())))
+        if magmom > 0:
+            output['SCF']['multiplicity'] = magmom + 1
+            output['SCF']['scf_type'] = 'unrestricted'
 
         # Write to disk in the output directory
         with open(Path(self.directory) / 'exachem.json', 'w') as fp:
             json.dump(output, fp, indent=2)
 
     def read_results(self):
-        # Find the output directory
-        output_paths = list(Path(self.directory).glob('exachem.*_files'))
-        if len(output_paths) > 1:  # pragma: no cover
-            raise ValueError(f'Found {len(output_paths)} output directories when expecting one')
-        output_path = output_paths[0]
+        # Load the output file
+        with open(Path(self.directory) / 'exachem.json') as fp:
+            output_file = json.load(fp)
+        scf_type = output_file['SCF'].get('scf_type', 'restricted')
 
-        # Read the energy
+        # Find the output directory
         level = self.parameters['method']
         basis = self.parameters['basisset']
+        output_path = Path(self.directory) / f'exachem.{basis}_files'
+
+        # Read the energy
         if level == "mp2":
             # If none, assume this is an MP2 computation and read from the stdout
             output = (output_path / '..' / 'exachem.out').read_text()
@@ -61,11 +79,11 @@ class ExaChem(FileIOCalculator):
             scf_energy = float(scf_energy_match.group(1))
 
             # Find the MP2 energy
-            mp2_energy_match = re.search(r'Closed-Shell MP2 energy / hartree:\s+([-\d\.]+)', output)
+            mp2_energy_match = re.search(rf'{"Closed" if scf_type == "restricted" else "Open"}-Shell MP2 energy / hartree:\s+([-\d\.]+)', output)
             mp2_energy = float(mp2_energy_match.group(1))
             energy = mp2_energy + scf_energy
         else:
-            output_json_dir = output_path / 'restricted' / 'json'
+            output_json_dir = output_path / scf_type / 'json'
             output_json = output_json_dir / f'exachem.{basis}.{level}.json'
 
             # Read in the energy
