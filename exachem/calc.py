@@ -72,7 +72,7 @@ class ExaChem(FileIOCalculator):
         # Read the energy
         if level == "mp2":
             # If none, assume this is an MP2 computation and read from the stdout
-            output = (output_path / '..' / 'exachem.out').read_text()
+            output = (output_path / '..' / 'exachem.out').resolve().read_text()
 
             # Find the SCF energy
             scf_energy_match = re.search(r'\*\* Total SCF energy =\s+([-\d\.]+)', output)
